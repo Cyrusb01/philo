@@ -16,6 +16,7 @@ def inbound_sms():
     response = MessagingResponse()
     response.message('Thanks for texting! Searching for your song now.')
 
+    print("here")
     response = "swag"
     return str(response)
 
