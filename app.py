@@ -27,7 +27,7 @@ def inbound_sms():
         response.message(f"Please enter a number between 1 and {len(myarray)}")
         return str(response)
     
-    response.message(lines[int(body)])
+    response.message("Quote of the Day: \n", lines[int(body)])
 
     return str(response)
 
