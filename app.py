@@ -29,7 +29,7 @@ def inbound_sms():
         return str(response)
     
     print(lines[int(body)])
-    response.message("Quote of the Day: \n", lines[int(body)])
+    response.message("hi")
 
     return str(response)
 
