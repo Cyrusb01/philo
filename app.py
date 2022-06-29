@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
 from twilio.rest import Client
 import os 
@@ -13,10 +13,22 @@ app = Flask(__name__)
 # A route to respond to SMS messages
 @app.route('/sms', methods=['POST', 'GET'])
 def inbound_sms():
-    response = MessagingResponse()
-    response.message('Thanks for texting! Searching for your song now.')
 
-    print("here")
+    body = request.values.get('Body', None)
+
+    response = MessagingResponse()
+    with open('quotes_shuffled.txt') as f:
+        lines = f.read()
+        myarray = lines.split("\n\n")
+    
+    try:
+        int(body)
+    except:
+        response.message(f"Please enter a number between 1 and {len(myarray)}")
+        return str(response)
+    
+    response.message(lines[int(body)])
+
     return str(response)
 
 if __name__ == '__main__':
