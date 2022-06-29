@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 
 # A route to respond to SMS messages
-@app.route('/sms', methods=['POST'])
+@app.route('/sms', methods=['POST', 'GET'])
 def inbound_sms():
     response = MessagingResponse()
     response.message('Thanks for texting! Searching for your song now.')
