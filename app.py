@@ -28,8 +28,8 @@ def inbound_sms():
         response.message(f"Please enter a number between 1 and {len(myarray)}")
         return str(response)
     
-    print(lines[int(body)])
-    response.message("hi")
+    print(myarray[int(body)])
+    response.message(myarray[int(body)])
 
     return str(response)
 
