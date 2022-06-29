@@ -17,7 +17,6 @@ def inbound_sms():
     response.message('Thanks for texting! Searching for your song now.')
 
     print("here")
-    response = "swag"
     return str(response)
 
 if __name__ == '__main__':
